@@ -55,7 +55,28 @@
         <button data-modal-open class="order-button button" type="button">Заказать услугу</button>
         <div data-modal class="backdrop is-hidden">
           <div class="modal">
-            <p>текст модального окна</p>
+            <p class="modal-form-slogan">Оставьте свои данные, мы Вам перезвоним</p>
+            <div class="modal-form">
+              <form action="">
+                <label for="Name">Имя</label>
+                <input type="text" name="name" id="name">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-name"></use>
+                </svg>
+                <label for="Tel">Телефон</label>
+                <input type="tel" name="tel" id="tel">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-tel"></use>
+                </svg>
+                <label for="Mail">Почта</label>
+                <input type="email" name="mail" id="mail">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-mail"></use>
+                </svg>
+                <label for="Comment" class="comment-textarea">Комментарий</label>
+                <input type="textarea" name="comment" id="comment">
+              </form>
+            </div>
             <button class="close-button" data-modal-close aria-label="закрыть">
               <svg class="close-button-icon">
                 <use href="./img/icons.svg#close" width="11px" height="11px"></use>
@@ -369,6 +390,18 @@
                 </svg>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="subscribe-input">
+          <p class="subscribe-slogan join-us-slogan">подпишитесь на рассылку</p>
+          <label class="input-placeholder">E-mail
+            <input type="email" name="email" />
+          </label>
+          <div class="button-wrapper">
+          <button type="submit" class="submit-btn button">Подписаться
+            <svg class="submit-icon"><use href="./img/icons.svg#send"></use>
+            </svg>
+          </button>
           </div>
         </div>
       </div>
