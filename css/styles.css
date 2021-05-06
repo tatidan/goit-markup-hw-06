@@ -44,7 +44,7 @@ body {
   color: var(--primary-text-color);
   font-family: var(--primary-font-family);
   font-style: var(--primary-font-style);
-  /* padding-top: высота шапки 82,4px*/
+  /* при fixed header padding-top: высота шапки 82,4px*/
 }
 
 /* ==========COMPONENTS============ */
@@ -265,6 +265,8 @@ body {
   margin-bottom: 30px;
   text-align: center;
 }
+
+/* =======BACKDROP & MODAL========= */
 .backdrop {
   cursor: not-allowed;
   display: flex;
@@ -287,7 +289,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%);
   opacity: 1;
   box-sizing: border-box;
   width: 528px;
@@ -300,11 +302,11 @@ body {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   transition: tranform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
 }
-/* добавить scale + opacity при появлении modal */
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%);
   opacity: 0;
 }
 .close-button {
@@ -332,7 +334,14 @@ body {
 .close-button:focus .close-button-icon {
   fill: var(--accent-color);
 }
-
+/* =======end of BACKDROP & MODAL======== */
+/* ============MODAL-FORM-DETAILS========= */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
 .modal-form-slogan {
   margin-bottom: 12px;
   font-weight: 700;
@@ -342,11 +351,6 @@ body {
   letter-spacing: 0.03em;
   color: #212121;
 }
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
-}
 .input-textarea {
   width: 100%;
   height: 40px;
@@ -354,14 +358,14 @@ body {
   box-sizing: border-box;
   border-radius: 4px;
   padding-left: 42px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* задать цвет вводимому тексту (белый на темном, черный на светлом фоне */
 .input-textarea-wrapper {
   position: relative;
 }
 .modal-form-icon {
   position: absolute;
-  top: 38px;
+  top: 36px;
   left: 0;
   width: 18px;
   height: 18px;
@@ -369,11 +373,11 @@ body {
   fill: #212121;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* .input-textarea:focus {
-  border: 1px solid var(--accent-color));
-} */
-.input-textarea:focus + .modal-form-icon {
+.input-textarea:focus {
   outline: none;
+  border-color: var(--accent-color);
+}
+.input-textarea:focus + .modal-form-icon {
   fill: var(--accent-color);
 }
 .label-name {
@@ -385,7 +389,9 @@ body {
   color: var(--secondary-text-color);
   margin-bottom: 4px;
   margin-top: 10px;
-  /* убрать margin top у имя */
+}
+.name-top {
+  margin-top: 0;
 }
 .comment-textarea::placeholder {
   font-weight: 400;
@@ -393,22 +399,6 @@ body {
   line-height: 1.67;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
-}
-.license-checkbox-text {
-  display: inline-block;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  color: var(--secondary-text-color);
-  margin-left: 8px;
-}
-.checkbox-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
 }
 .comment-textarea {
   width: 100%;
@@ -419,12 +409,85 @@ body {
   box-sizing: border-box;
   border-radius: 4px;
 }
+/* ======MODAL-CHECKBOX======== */
+.license-checkbox-text {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+  margin-left: 8px;
+}
+.license-contract-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  text-decoration-line: underline;
+  color: var(--accent-color);
+}
 
+.checkbox-area {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.checkbox-area::before {
+  margin-left: 15px;
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.check-box-icon {
+  position: absolute;
+  top: 2px;
+  left: 14px;
+  display: block;
+  width: 16px;
+  height: 15px;
+  z-index: 6;
+  /* opacity: 0; */
+}
+
+.license-checkbox:checked + .check-box-icon {
+  opacity: 1;
+}
+.license-checkbox:checked + .checkbox-area::before {
+  border-color: white;
+}
+
+/* подмена чекбокса не работает, не связан before */
+
+/* ======SUBMIT-BUTTON====== */
 .modal-form-button {
   margin-bottom: 0;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* между кнопкой и bottom карточки есть лишний зазор, откуда? */
-/* svg position absolute */
+.modal-form-button:hover,
+.modal-form-button:focus {
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+/* =========end of MODAL FORM========= */
+/* ==============end of HERO=============== */
 
 /* =============FEATURES==================== */
 
@@ -644,9 +707,6 @@ body {
   border-color: var(--accent-color);
 }
 
-/* как отцентрировать иконки внутри бокса??? */
-/* как сбросить лишние пиксели справа, которые есть сумма границ боксов? */
-
 /* =============end of OUR CLIENTS==================== */
 
 /* =============FOOTER==================== */
@@ -715,18 +775,26 @@ body {
   justify-content: space-between;
   vertical-align: top;
 }
+.right-side .social-links-icon {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.right-side .social-links-list-item:hover .social-links-icon,
+.right-side .social-links-list-item:focus-within .social-links-icon {
+  fill: var(--white-color);
+}
+/* hover работает, focus (tab) на social links не идет */
+
+/* ============SUBSCRIBE-INPUT-FORM============= */
+.subscribe-slogan {
+  margin: 0;
+  margin-bottom: 20px;
+  padding-top: 12px;
+}
 .subscribe-input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin-left: 93px;
 }
-.button-wrapper {
+.subscribe-form {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 200px;
-  height: 50px;
 }
 .submit-btn {
   position: relative;
@@ -742,21 +810,27 @@ body {
   fill: var(--white-color);
   width: 24px;
   height: 24px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.subscribe-slogan {
-  margin: 0;
-  margin-bottom: 20px;
-  padding-top: 12px;
+.submit-btn:hover .submit-icon,
+.submit-btn:focus-within .submit-icon {
+  fill: #000000;
 }
-/* зачем повторять, если p обнуляет? */
+
 .input-placeholder {
   width: 358px;
   height: 50px;
+  background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
+  padding-left: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: var(--white-color);
 }
+
 /* ============END OF FOOTER=========== */
 /* ==========END of MAIN PAGE sections============== */
 

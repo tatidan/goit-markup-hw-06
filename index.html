@@ -58,35 +58,43 @@
             <p class="modal-form-slogan">Оставьте свои данные, мы Вам перезвоним</p>
 
             <form action="#" class="modal-form">
-<div class="input-textarea-wrapper">
-              <label class="label-name" for="Name">Имя</label>
-              <input type="text" name="name" id="name" required autofocus minlength="3" class="input-textarea">
-              <svg class="modal-form-icon">
-                <use href="./img/icons.svg#form-name"></use>
-              </svg>
-</div>
-<div class="input-textarea-wrapper">
-              <label class="label-name" for="Tel" >Телефон</label>
-              <input type="tel" name="tel" id="tel" required pattern="(0-9){3}-(0-9){3}-(0-9){2}-(0-9){2}" title="067-555-55-55" class="input-textarea">
-              <svg class="modal-form-icon">
-                <use href="./img/icons.svg#form-tel"></use>
-              </svg>
+              <div class="input-textarea-wrapper">
+                <label for="name" class="label-name name-top" >Имя</label>
+                <input type="text" name="name" id="name" required autofocus minlength="3" class="input-textarea">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-name"></use>
+                </svg>
               </div>
-<div class="input-textarea-wrapper">
-              <label class="label-name" for="Mail" >Почта</label>
-              <input type="email" name="mail" id="mail" required class="input-textarea">
-              <svg class="modal-form-icon">
-                <use href="./img/icons.svg#form-mail"></use>
-              </svg>
-</div>
-              <label class="label-name" for="Comment">Комментарий</label>
-              <textarea class="comment-textarea" name="comment" id="comment" rows="6" placeholder="Введите текст"></textarea>
+              <div class="input-textarea-wrapper">
+                <label for="tel" class="label-name" >Телефон</label>
+                <input type="tel" name="tel" id="tel" required pattern="(0-9){3}-(0-9){3}-(0-9){2}-(0-9){2}"
+                  title="067-555-55-55" class="input-textarea">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-tel"></use>
+                </svg>
+              </div>
+              <div class="input-textarea-wrapper">
+                <label for="mail" class="label-name" >Почта</label>
+                <input type="email" name="mail" id="mail" required class="input-textarea">
+                <svg class="modal-form-icon">
+                  <use href="./img/icons.svg#form-mail"></use>
+                </svg>
+              </div>
+              <label class="label-name" for="comment">Комментарий</label>
+              <textarea class="comment-textarea input-textarea" name="comment" id="comment" rows="6"
+                placeholder="Введите текст"></textarea>
 
               <div class="checkbox-area">
-              <input type="checkbox" name="license">
-              <label class="license-checkbox-text" for="license-checkbox">Соглашаюсь с рассылкой и принимаю <span> <a
-                    class="license-contract-link" href="">Условия договора</a></span></label>
+                <input type="checkbox" class="visually-hidden" name="license" id="license-checkbox">
+                <label class="license-checkbox-text" for="license-checkbox">Соглашаюсь с рассылкой и принимаю <span> <a
+                      class="license-contract-link" href="">Условия договора</a></span>
+
+                  <svg class="check-box-icon" width="16px" height="15px">
+                    <use href="./img/icons.svg#check-box-icon"></use>
+                  </svg>
+                </label>
               </div>
+
               <button class="modal-form-button button" type="submit">Отправить</button>
             </form>
 
@@ -163,22 +171,22 @@
         <h2 class="section-title">Чем мы занимаемся</h2>
         <ul class="about-list list">
           <li class="about-list-item">
-              <img src="./img/box1.jpg" alt="computer" width="370">
-              <div class="card-text-box">
-                <p class="card-text">десктопные приложения</p>
-              </div>
+            <img src="./img/box1.jpg" alt="computer" width="370">
+            <div class="card-text-box">
+              <p class="card-text">десктопные приложения</p>
+            </div>
           </li>
           <li class="about-list-item">
-              <img src="./img/box2.jpg" alt="smartphone" width="370">
-              <div class="card-text-box">
-                <p class="card-text">мобильные приложения</p>
-              </div>
+            <img src="./img/box2.jpg" alt="smartphone" width="370">
+            <div class="card-text-box">
+              <p class="card-text">мобильные приложения</p>
+            </div>
           </li>
           <li class="about-list-item">
-              <img src="./img/box3.jpg" alt="tablet" width="370">
-              <div class="card-text-box">
-                <p class="card-text">дизайнерские решения</p>
-              </div>
+            <img src="./img/box3.jpg" alt="tablet" width="370">
+            <div class="card-text-box">
+              <p class="card-text">дизайнерские решения</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -328,22 +336,28 @@
       <div class="container">
         <h2 class="section-title">Постоянные клиенты</h2>
         <ul class="our-clients-list list">
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"width="45px" height="50px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="45px" height="50px">
                 <use href="./img/icons.svg#logo1"></use>
               </svg></a> </li>
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"width="40px" height="52px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="40px" height="52px">
                 <use href="./img/icons.svg#logo2"></use>
               </svg></a></li>
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"width="42px" height="43px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="42px" height="43px">
                 <use href="./img/icons.svg#logo3"></use>
               </svg></a></li>
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo" width="170px" height="90px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="170px" height="90px">
                 <use href="./img/icons.svg#logo4"></use>
               </svg></a></li>
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo" width="59px" height="47px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="59px" height="47px">
                 <use href="./img/icons.svg#logo5"></use>
               </svg></a></li>
-          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo" width="170px" height="90px">
+          <li class="our-clients-list-item"> <a class="our-clients-link link" href=""><svg class="icon-logo"
+                width="170px" height="90px">
                 <use href="./img/icons.svg#logo6"></use>
               </svg></a></li>
         </ul>
@@ -372,6 +386,7 @@
             </ul>
           </address>
         </div>
+
         <div class="right-side">
           <div class="join-us">
             <p class="join-us-slogan">присоединяйтесь</p>
@@ -399,21 +414,24 @@
             </ul>
           </div>
         </div>
+
+        <!-- =========SUBSCRIBE-INPUT-FORM=========== -->
         <div class="subscribe-input">
           <p class="subscribe-slogan join-us-slogan">подпишитесь на рассылку</p>
 
-          <form action="#">
-            <label class="input-placeholder">E-mail
-              <input type="email" name="email" placeholder="E-mail">
+          <form action="#" class="subscribe-form">
+
+            <label>
+              <input class="input-placeholder" type="email" name="email" placeholder="E-mail" />
             </label>
-            <div class="button-wrapper">
-              <button type="submit" class="submit-btn button">Подписаться
-                <svg class="submit-icon">
-                  <use href="./img/icons.svg#send"></use>
-                </svg>
-              </button>
-            </div>
+
+            <button type="submit" class="submit-btn button">Подписаться
+              <svg class="submit-icon">
+                <use href="./img/icons.svg#send"></use>
+              </svg>
+            </button>
           </form>
+
         </div>
       </div>
     </div>
