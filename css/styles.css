@@ -292,6 +292,7 @@ body {
   box-sizing: border-box;
   width: 528px;
   height: 581px;
+  padding: 40px;
   border-radius: 4px;
   background-color: var(--white-color);
   cursor: pointer;
@@ -313,7 +314,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* почему не центрируется??? */
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -326,40 +326,106 @@ body {
   width: 18px;
   height: 18px;
   fill: rgba(0, 0, 0, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-button:hover .close-button-icon,
+.close-button:focus .close-button-icon {
+  fill: var(--accent-color);
 }
 
 .modal-form-slogan {
-  /* width: 448px;
-height: 23px; */
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
   margin-bottom: 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
   text-align: center;
   letter-spacing: 0.03em;
-
   color: #212121;
 }
 .modal-form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
+}
+.input-textarea {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding-left: 42px;
+}
+/* задать цвет вводимому тексту (белый на темном, черный на светлом фоне */
+.input-textarea-wrapper {
+  position: relative;
 }
 .modal-form-icon {
-  /* position: absolute;
-  top: 50%;
-  left: 0; */
+  position: absolute;
+  top: 38px;
+  left: 0;
   width: 18px;
   height: 18px;
+  margin-left: 12px;
+  fill: #212121;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* .input-textarea:focus {
+  border: 1px solid var(--accent-color));
+} */
+.input-textarea:focus + .modal-form-icon {
+  outline: none;
+  fill: var(--accent-color);
+}
+.label-name {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+  margin-bottom: 4px;
+  margin-top: 10px;
+  /* убрать margin top у имя */
+}
+.comment-textarea::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.license-checkbox-text {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+  margin-left: 8px;
+}
+.checkbox-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 .comment-textarea {
-  display: block;
-  width: 448px;
+  width: 100%;
   height: 120px;
   padding: 12px 16px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
 }
+
+.modal-form-button {
+  margin-bottom: 0;
+}
+/* между кнопкой и bottom карточки есть лишний зазор, откуда? */
+/* svg position absolute */
+
 /* =============FEATURES==================== */
 
 .feature-section,
@@ -524,20 +590,22 @@ height: 23px; */
   fill: var(--basic-icon-color);
 }
 .social-links-list-item:hover,
-.social-links-list-item:focus {
+.social-links-list-item:focus-within {
   background-color: var(--accent-color);
   border: 1px solid transparent;
 }
 .social-links-list-item:hover .social-links-icon,
-.social-links-list-item:focus .social-links-icon {
+.social-links-list-item:focus-within .social-links-icon {
   fill: var(--white-color);
 }
 
 .social-links-list {
   display: inline-flex;
 }
-.our-team-list-item {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.member-card-text {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
 }
 /* =============end of OUR TEAM==================== */
 /* =============OUR CLIENTS==================== */
@@ -549,26 +617,30 @@ height: 23px; */
   margin-top: -30px;
 }
 .our-clients-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 170px;
+  height: 90px;
   border: 1px solid var(--basic-icon-color);
   border-radius: 4px;
   margin-left: 30px;
   margin-top: 30px;
 }
 .icon-logo {
-  width: 170px;
-  height: 90px;
   fill: var(--basic-icon-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.icon-logo:hover,
-.icon-logo:focus {
+.our-clients-list-item:hover .icon-logo,
+.our-clients-list-item:focus-within .icon-logo {
   fill: var(--accent-color);
 }
 .our-clients-list-item {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .our-clients-list-item:hover,
-.our-clients-list-item:focus {
+.our-clients-list-item:focus-within {
   border-color: var(--accent-color);
 }
 
@@ -647,6 +719,7 @@ height: 23px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 93px;
 }
 .button-wrapper {
   display: flex;
@@ -654,10 +727,11 @@ height: 23px; */
   flex-wrap: nowrap;
   width: 200px;
   height: 50px;
-  padding-left: 28px;
 }
 .submit-btn {
   position: relative;
+  padding-left: 29px;
+  text-align: start;
 }
 .submit-icon {
   position: absolute;
@@ -671,6 +745,8 @@ height: 23px; */
 }
 .subscribe-slogan {
   margin: 0;
+  margin-bottom: 20px;
+  padding-top: 12px;
 }
 /* зачем повторять, если p обнуляет? */
 .input-placeholder {
@@ -723,6 +799,8 @@ height: 23px; */
 .portfolio-button:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 /*========end of PORTFOLIO-BUTTONS==========  */
 /*========PORTFOLIO-PROJECTS==========  */
@@ -800,12 +878,9 @@ height: 23px; */
   text-align: start;
   padding: 63px 24px;
 }
-.portfolio-projects-list-item:hover .overlay {
+.portfolio-projects-list-item:hover .overlay,
+.portfolio-projects-list-item:focus-within .overlay {
   opacity: 1;
   transform: translateY(-100%);
 }
-.portfolio-projects-list-item:focus .overlay {
-  opacity: 1;
-}
-
 /* ===========END of PORTFOLIO page============== */
