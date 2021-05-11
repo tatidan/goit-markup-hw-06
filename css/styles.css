@@ -226,11 +226,9 @@ body {
 .contacts-nav-icon {
   display: inline-block;
   width: 16px;
-  height: 12px;
+  height: 16px;
   fill: var(--basic-icon-color);
   margin-right: 10px;
-  margin-top: 3px;
-  margin-bottom: 2px;
 }
 
 /* ======end of HEADER CONTACTS-NAV======= */
@@ -425,15 +423,7 @@ body {
   border-radius: 4px;
 }
 /* ======MODAL-CHECKBOX======== */
-.license-checkbox-text {
-  display: inline-block;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  color: var(--secondary-text-color);
-  margin-left: 8px;
-}
+
 .license-contract-link {
   font-weight: 400;
   font-size: 14px;
@@ -447,14 +437,22 @@ body {
 .license-contract-link:focus {
   outline: 2px solid var(--accent-color);
 }
-.checkbox-area {
+.license-checkbox-text {
   position: relative;
+  display: inline-block;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+  margin-left: 8px;
+  padding-left: auto;
+  padding-right: auto;
+  cursor: pointer;
 }
-
-.checkbox-area::before {
-  margin-left: 15px;
+.license-checkbox-text::before {
   content: "";
   display: inline-block;
   box-sizing: border-box;
@@ -463,27 +461,29 @@ body {
   background-color: white;
   border: 2px solid black;
   border-radius: 2px;
+  outline: 4px solid transparent;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.checkbox:checked .license-checkbox-text::before {
+  border: 2px solid white;
+  outline: 4px solid transparent;
+}
 .check-box-icon {
   position: absolute;
-  top: 2px;
-  left: 14px;
+  top: 10px;
+  transform: translateY(-50%);
   display: block;
   width: 16px;
   height: 15px;
   z-index: 6;
-  /* opacity: 0; */
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.license-checkbox:checked + .check-box-icon {
+.checkbox:checked .check-box-icon {
   opacity: 1;
 }
-.license-checkbox:checked + .checkbox-area::before {
-  border-color: white;
-}
 
-/* подмена чекбокса не работает, не связан before */
+/* подмена чекбокса не работает */
 
 /* ======SUBMIT-BUTTON====== */
 .modal-form-button {
@@ -727,12 +727,16 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.footer-wrapper {
+.footer .container {
   display: flex;
 }
 /* .address-block, .join-block {width: calc()}; */
 
 /* ==== ADDRESS-LINKS-BLOCK========= */
+.address-block {
+  flex-basis: calc((50% - 45px) / 2);
+  margin-right: 30px;
+}
 .footer-address {
   display: inline-block;
   color: var(--white-color);
@@ -766,6 +770,8 @@ body {
 /* =========JOIN-BLOCK=========== */
 .join-block {
   display: flex;
+  flex-basis: calc((50% - 45px) / 2);
+  margin-right: 30px;
   flex-direction: column;
 }
 .join-block-slogan,
@@ -777,14 +783,10 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--white-color);
-  margin-left: 70px;
   margin-bottom: 20px;
   margin-top: 12px;
 }
 
-.join-block .social-links-list {
-  margin-left: 70px;
-}
 .social-links-link {
   background: rgba(255, 255, 255, 0.1);
 }
@@ -798,7 +800,7 @@ body {
 
 /* ============SUBSCRIBE-BLOCK-FORM============= */
 .subscribe-block {
-  margin-left: 93px;
+  flex-basis: calc(50% - 15px);
 }
 .subscribe-slogan {
   margin: 0;
