@@ -786,7 +786,7 @@ body {
 .social-links-link {
   background: rgba(255, 255, 255, 0.1);
 }
-.social-links-icon {
+.footer .social-links-icon {
   fill: var(--white-color);
 }
 
