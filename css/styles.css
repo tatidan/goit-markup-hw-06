@@ -448,8 +448,6 @@ body {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
   margin-left: 8px;
-  padding-left: auto;
-  padding-right: auto;
   cursor: pointer;
 }
 .license-checkbox-text::before {
@@ -496,7 +494,7 @@ body {
 .modal-form-button:focus {
   background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  outline: -2px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 /* =========end of MODAL FORM========= */
 /* ==============end of HERO=============== */
@@ -692,6 +690,7 @@ body {
 }
 .our-clients-link {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -730,7 +729,6 @@ body {
 .footer .container {
   display: flex;
 }
-/* .address-block, .join-block {width: calc()}; */
 
 /* ==== ADDRESS-LINKS-BLOCK========= */
 .address-block {
@@ -769,10 +767,8 @@ body {
 
 /* =========JOIN-BLOCK=========== */
 .join-block {
-  display: flex;
   flex-basis: calc((50% - 45px) / 2);
   margin-right: 30px;
-  flex-direction: column;
 }
 .join-block-slogan,
 .subscribe-slogan {
@@ -790,11 +786,7 @@ body {
 .social-links-link {
   background: rgba(255, 255, 255, 0.1);
 }
-.join-block .social-links-icon {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.footer-social-link:hover .social-links-icon,
-.footer-social-link:focus .social-links-icon {
+.social-links-icon {
   fill: var(--white-color);
 }
 
